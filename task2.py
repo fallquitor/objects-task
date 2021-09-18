@@ -51,8 +51,7 @@ class Critter:
               ", и сейчас я чувствую себя", self.mood)
         self.__pass_time()
 
-    def eat(self, food = 0:
-        food = int(input("Сколько еды дать зверюшке?"))
+    def eat(self, food = 4):
         print("Мррр...  Спасибо!")
         self.hunger -= food
         if self.hunger < 0:
@@ -61,15 +60,9 @@ class Critter:
 
     def play(self, fun = 4):
         print("Уиии!")
-        time=int(input("Сколько времени играть со зверюшкой?"))
-        if time <= 10:
-          self.hunger+=4
-          self.boredom -= fun
-        elif time > 10:
-          self.hunger+=8
-          self.boredom -= fun
+        self.boredom -= fun
         if self.boredom < 0:
-              self.boredom = 0
+            self.boredom = 0
         self.__pass_time()
 
 def main():
@@ -101,11 +94,11 @@ def main():
         
         # кормление зверюшки
         elif choice == "2":
-            crit.eat()
+            crit.eat(food=int(input("Сколько дадите есть зверушке?")))
          
         # игра со зверюшкой
         elif choice == "3":
-            crit.play()
+            crit.play(fun=int(input("Сколько будете играть со зверушкой?")))
 
         # непонятный пользовательский ввод
         else:
